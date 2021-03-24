@@ -1,0 +1,25 @@
+.none-logo {
+    background-image: url('../../../assets/img/logo-none.png');
+    background-size: cover;
+}
+
+.card-teacher {
+    margin: 20px auto;
+    width: 100%;
+    max-width: 600px;
+    display: inline-block!important;
+}
+
+.card-teacher.spinner {
+    background-color: #eee;
+}
+
+.mat-tab-label {
+    color: white;
+    opacity: 1 !important;
+}
+.teachers{
+    display: flex;
+    flex-direction: column;
+    
+}

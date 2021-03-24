@@ -1,0 +1,22 @@
+<h2>Оберіть ролі для {{user.Name}}</h2>
+
+<section class="example-section">
+    <mat-slide-toggle class="role-toggle" [(ngModel)]="checkedAdmin" color="primary" (change)="changed('admin',checkedAdmin)">
+        Адмін
+    </mat-slide-toggle>
+    <mat-slide-toggle class="role-toggle" [(ngModel)]="checkedUsers" color="primary" (change)="changed('users',checkedUsers)">
+        Користувачі
+    </mat-slide-toggle>
+    <mat-slide-toggle class="role-toggle" [(ngModel)]="checkedTeachers" color="primary" (change)="changed('teachers',checkedTeachers)">
+        Викладачі
+    </mat-slide-toggle>
+    <mat-slide-toggle class="role-toggle" [(ngModel)]="checkedNews" color="primary" (change)="changed('news',checkedNews)">
+        Новини
+    </mat-slide-toggle>
+    <mat-slide-toggle class="role-toggle" [(ngModel)]="checkedDocuments" color="primary" (change)="changed('documents',checkedDocuments)">
+        Документи
+    </mat-slide-toggle>
+</section>
+
+<button mat-button color="primary" [mat-dialog-close]="roles" [disabled]="roles.length == 0" cdkFocusInitial>зберегти</button>
+<button mat-button color="warn" (click)="onNoClick()">відминити</button>

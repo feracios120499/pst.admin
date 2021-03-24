@@ -1,0 +1,76 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0px;
+    background-image: url(https://lh4.googleusercontent.com/-XplyTa1Za-I/VMSgIyAYkHI/AAAAAAAADxM/oL-rD6VP4ts/w1184-h666/Android-Lollipop-wallpapers-Google-Now-Wallpaper-2.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    font-family: 'Roboto', sans-serif;
+    overflow-x: hidden;
+}
+
+.mat-button.mat-button-base.active>div.mat-button-focus-overlay {
+    opacity: 0.07!important;
+}
+
+.wrapper {
+    height: 100%;
+    width: 100%;
+    margin: 15px;
+}
+.mat-tab-label {
+    color: white;
+    opacity: 1 !important;
+}
+
+.text-white {
+    color: white;
+}
+
+@keyframes spinner {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.spinner:before {
+    content: '';
+    box-sizing: border-box;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin-top: -10px;
+    margin-left: -10px;
+    border-radius: 50%;
+    border: 2px solid #ffffff;
+    border-top-color: darkblue;
+    animation: spinner .8s linear infinite;
+}
+
+.m-t-20{
+    margin-top: 20px;
+}
+.flex{
+    display: flex;
+}
+.flex-center-between{
+    justify-content: space-between;
+    align-items: center;
+}
+.flex-center-start{
+    justify-content: flex-start;
+    align-items: center;
+}
+.flex-center-center{
+    justify-content: center;
+    align-items: center;
+}

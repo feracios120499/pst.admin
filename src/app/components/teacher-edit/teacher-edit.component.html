@@ -1,0 +1,47 @@
+<div class="wrapper flex flex-center-center">
+    <mat-card class="card-teacher" [class.spinner]="teacher.loading" disabled="user.loading">
+        <mat-card-header>
+            <img mat-card-avatar [src]="teacher.Image" *ngIf="teacher.Image && !teacher.ImageUrl" (click)="fileInput.click()">
+            <div mat-card-avatar class="none-logo" *ngIf="!teacher.Image && !teacher.ImageUrl" (click)="fileInput.click()"></div>
+            <img mat-card-avatar [src]="teacher.ImageUrl" *ngIf="teacher.ImageUrl" (click)="fileInput.click()">
+            <input hidden (change)="onSelectFile($event, fileInput.files)" #fileInput multiple type="file" id="file"
+                accept="image/*">
+            <mat-card-title>{{teacher.Name}}</mat-card-title>
+            <mat-card-subtitle>{{teacher.Email}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <div style="margin:20px 0">
+                <mat-form-field appearance="outline" style="width: 100%;">
+                    <mat-label>ПІБ</mat-label>
+                    <input matInput placeholder="ПІБ" [(ngModel)]="teacher.Name">
+                </mat-form-field>
+            </div>
+            <div style="margin:20px 0">
+                <h4>Опис викладача</h4>
+                <button mat-button color="primary" (click)="addDetail()">додати опис</button>
+            </div>
+            <mat-accordion cdkDropList (cdkDropListDropped)="drop($event)">
+                <mat-expansion-panel *ngFor="let detail of teacher.Details" cdkDrag [expanded]="detail.expanded">
+                    <mat-expansion-panel-header  cdkDragHandle>
+                        <mat-panel-title>
+                            {{detail.Title}}
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <div style="margin:20px 0">
+                        <button mat-raised-button color="warn" (click)="removeDetail(detail)">Видалити опис</button>
+                    </div>
+                    <div>
+                        <mat-form-field appearance="outline" style="width: 100%;">
+                            <mat-label>Назва опису</mat-label>
+                            <input matInput placeholder="Назва опису" [(ngModel)]="detail.Title">
+                        </mat-form-field>
+                    </div>
+                    <ckeditor [editor]="Editor" data="" [(ngModel)]="detail.Text"></ckeditor>
+                </mat-expansion-panel>
+            </mat-accordion>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-button color="primary" (click)="save()">зберегти</button>
+        </mat-card-actions>
+    </mat-card>
+</div>

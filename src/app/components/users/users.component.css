@@ -1,0 +1,20 @@
+.none-logo {
+    background-image: url('../../../assets/img/logo-none.png');
+    background-size: cover;
+}
+
+.card-user {
+    margin: 25px;
+    width: 100%;
+    max-width: 500px;
+    display: inline-block!important;
+}
+
+.card-user.spinner {
+    background-color: #eee;
+}
+
+.mat-tab-label {
+    color: white;
+    opacity: 1 !important;
+}

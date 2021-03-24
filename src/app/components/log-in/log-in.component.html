@@ -1,0 +1,25 @@
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+
+    <mat-card class="box">
+        <mat-card-header>
+            <mat-card-title>Вхід</mat-card-title>
+        </mat-card-header>
+
+        <form class="example-form">
+            <mat-card-content>
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Email" [(ngModel)]="LoginModel.Email" name="Email">
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Пароль" type="password" [(ngModel)]="LoginModel.Password"
+                        name="Password">
+                </mat-form-field>
+            </mat-card-content>
+            <button mat-stroked-button color="primary" class="btn-block" (click)="login()"
+                [disabled]="!LoginModel.Password||!LoginModel.Email">УВІЙТИ</button>
+                <button mat-stroked-button color="primary" class="btn-block" (click)="loginWithGoogle()" style="margin-top:20px">УВІЙТИ З GOOGLE</button>
+        </form>
+    </mat-card>
+
+</div>

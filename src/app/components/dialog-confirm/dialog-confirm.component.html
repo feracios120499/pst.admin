@@ -1,0 +1,7 @@
+<div mat-dialog-content>
+    {{message}}
+</div>
+<div mat-dialog-actions>
+    <button mat-button color="primary" [mat-dialog-close]="true" cdkFocusInitial>Так</button>
+    <button mat-button color="warn" (click)="onNoClick()">Ні</button>
+</div>

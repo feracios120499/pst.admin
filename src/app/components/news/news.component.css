@@ -1,0 +1,21 @@
+.card-news {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 500px;
+    display: inline-block!important;
+    margin-bottom: 20px;
+}
+
+.card-news.spinner {
+    background-color: #eee;
+}
+
+.mat-tab-label {
+    color: white;
+    opacity: 1 !important;
+}
+.news{
+    display: flex;
+    flex-direction: column;
+    
+}

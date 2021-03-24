@@ -1,0 +1,27 @@
+<div class="wrapper flex flex-center-center">
+    <mat-card class="card-documents" *ngIf="FileExist">
+        <mat-card-header>
+            <img mat-card-avatar src="../../../assets/img/file-pdf-solid.svg" width="40" height="40">
+            <mat-card-title>{{document.FileName}}</mat-card-title>
+            <mat-card-subtitle>{{document.FileSize / 1024 | number:'0.2-2'}}МБ</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <mat-form-field appearance="fill">
+                <mat-label>Тип документа</mat-label>
+                <mat-select [(ngModel)]="Type">
+                    <mat-option *ngFor="let food of Types" [value]="food">
+                        {{food.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-button color="primary" (click)="save()">зберегти</button>
+        </mat-card-actions>
+    </mat-card>
+    <div style="margin-left:15px" *ngIf="!FileExist">
+        <button mat-raised-button color="primary" (click)="documentInput.click()">Обрати файл</button>
+        <input hidden (change)="onSelectDocument($event, documentInput.files)" #documentInput type="file" id="file"
+            accept="application/pdf">
+    </div>
+</div>

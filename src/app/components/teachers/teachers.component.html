@@ -1,0 +1,37 @@
+<div class="wrapper">
+    <div class="margin-left:15px">
+        <h1 class="text-white">
+            Викладачі
+        </h1>
+    </div>
+    <div style="margin-left:15px">
+        <button mat-raised-button color="primary" [routerLink]="'create'">Добавити викладача</button>
+    </div>
+    <div class="teachers">
+        <mat-card class="card-teacher" *ngFor="let teacher of teachers">
+            <mat-card-header>
+                <img mat-card-avatar [src]="teacher.Image" *ngIf="teacher.Image">
+                <div mat-card-avatar class="none-logo" *ngIf="!teacher.Image"></div>
+                <mat-card-title>{{teacher.Name}}</mat-card-title>
+                <mat-card-subtitle>{{teacher.Email}}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <mat-accordion>
+                    <mat-expansion-panel *ngFor="let detail of teacher.Details">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                {{detail.Title}}
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <div [innerHTML]="detail.Text"></div>
+                    </mat-expansion-panel>
+                </mat-accordion>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-button color="primary" (click)="edit(teacher)">редагувати</button>
+                <button mat-button color="warn" (click)="delete(teacher)">видалити</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+
+</div>

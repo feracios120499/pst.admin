@@ -1,0 +1,91 @@
+<div class="wrapper">
+    <mat-card class="card-create-news">
+        <mat-card-header>
+            <img mat-card-avatar [src]="new.ImageUrl" *ngIf="new.ImageUrl">
+            <button type="button" mat-raised-button (click)="imageInput.click()">Обрати зоображення</button>
+            <input hidden (change)="onSelectImage($event, imageInput.files)" #imageInput type="file" id="file"
+                accept="image/*">
+        </mat-card-header>
+        <mat-card-content class="m-t-20">
+            <mat-accordion>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            Головне
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Заголовок</mat-label>
+                        <input matInput placeholder="Заголовок" [(ngModel)]="new.Title">
+                    </mat-form-field>
+                    <div><label>Текст</label></div>
+                    <ckeditor [editor]="Editor" data="" [(ngModel)]="new.Text"></ckeditor>
+                    <div>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Рубрика</mat-label>
+                            <input matInput placeholder="Рубрика" [(ngModel)]="new.Rubric">
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-form-field>
+                            <mat-label>Дата новини</mat-label>
+                            <input matInput [matDatepicker]="picker3" [(ngModel)]="new.Date">
+                            <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+                            <mat-datepicker #picker3></mat-datepicker>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Автор</mat-label>
+                            <input matInput placeholder="Автор" [(ngModel)]="new.Author">
+                        </mat-form-field>
+                    </div>
+                </mat-expansion-panel>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            Фото
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <button type="button" mat-raised-button (click)="fileInput.click()">Обрати файли</button>
+                    <input hidden (change)="onSelectFile($event, fileInput.files)" #fileInput multiple type="file"
+                        id="file" accept="image/*">
+                    <mat-list-item *ngFor="let image of images">
+                        <div class="flex flex-center-between">
+                            <img [src]="image.src" width="50" height="50">
+                            <h4 mat-line style="max-width: 50%;
+                            text-overflow: ellipsis;
+                            overflow: hidden;">{{image.name}}</h4>
+                            <button mat-button color="warn" (click)="remove(image)">видалити</button>
+                        </div>
+                        
+                        <mat-divider style="position: relative!important;"></mat-divider>
+                    </mat-list-item>
+                </mat-expansion-panel>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            Документи
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <button type="button" mat-raised-button (click)="fileInput2.click()">Обрати документи</button>
+                    <input hidden (change)="onSelectDocuments($event, fileInput2.files)" #fileInput2 multiple type="file"
+                        id="file" accept="application/pdf">
+                        <mat-list-item *ngFor="let doc of documents">
+                            <div class="flex flex-center-between">
+                                <img src="../../../assets/img/file-pdf-solid.svg" width="50" height="50">
+                                <h4 mat-line style="max-width: 50%;
+                                text-overflow: ellipsis;
+                                overflow: hidden;">{{doc.name}}</h4>
+                                <button mat-button color="warn" (click)="removeDoc(doc)">видалити</button>                             
+                            </div>
+                            <mat-divider style="position: relative!important;"></mat-divider>
+                        </mat-list-item>
+                </mat-expansion-panel>
+            </mat-accordion>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-button color="primary" (click)="addNew()">зберегти</button>
+        </mat-card-actions>
+    </mat-card>
+</div>

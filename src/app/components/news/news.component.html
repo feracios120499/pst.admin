@@ -1,0 +1,67 @@
+<!-- <input #file type='file' multiple (change)="onSelectFile($event, file.files)">
+<button mat-button color="primary" (click)="uploadImage()">загрузить</button>
+<ckeditor [editor]="Editor" data="<p>Hello, world!</p>"></ckeditor> -->
+<div class="wrapper">
+    <div style="margin-left:15px">
+        <h1 class="text-white">
+            Новини
+        </h1>
+    </div>
+    <div style="margin-left:15px">
+        <button mat-raised-button color="primary" [routerLink]="'create'">Добавити новину</button>
+    </div>
+    <div class="news">
+        <mat-card class="card-news" *ngFor="let new of news">
+            <mat-card-header>
+                <img mat-card-avatar [src]="new.Image" *ngIf="new.Image">
+                <mat-card-title>{{new.Title}}</mat-card-title>
+                <mat-card-subtitle>{{new.Date | date: 'dd.MM.yyyy'}}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <mat-accordion>
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                               Текст
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <div [innerHTML]="new.Text"></div>
+                    </mat-expansion-panel>
+                    <mat-expansion-panel (opened)="loadImages(new)">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                               Фото
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <mat-list-item *ngFor="let image of new.Images">
+                            <div class="flex flex-center-start">
+                                <img [src]="image" width="50" height="50">                    
+                            </div>
+                            <mat-divider style="position: relative!important;"></mat-divider>
+                        </mat-list-item>
+                    </mat-expansion-panel>
+                        
+                    <mat-expansion-panel (opened)="loadDocuments(new)">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                               Документи
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <mat-list-item *ngFor="let doc of new.Documents">
+                            <div class="flex flex-center-start">
+                                <img src="../../../assets/img/file-pdf-solid.svg" width="50" height="50">
+                                <h4 mat-line style="max-width: 50%;
+                                text-overflow: ellipsis;
+                                overflow: hidden;">{{doc.FileName}}</h4>                         
+                            </div>
+                            <mat-divider style="position: relative!important;"></mat-divider>
+                        </mat-list-item>
+                    </mat-expansion-panel>
+                </mat-accordion>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-button color="warn" (click)="remove(new.Id)">видалити</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</div>
