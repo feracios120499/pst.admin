@@ -79,7 +79,7 @@ export class NewsService extends BaseService {
 
     news.Image = image;
     return await this.db.object('news/' + newsId).update(news);
-    
+
   }
 
   async removeNews(newsId: string) {
@@ -119,7 +119,7 @@ export class NewsService extends BaseService {
             finalize(() => {
               fileRef.getDownloadURL().subscribe((response) => {
                 newsImages.push(response);
-                resolve();
+                resolve(newsImages);
               });
             })
           )
@@ -169,7 +169,7 @@ export class NewsService extends BaseService {
                 firebaseDocument.FileSize = document.size;
                 firebaseDocument.FileUrl = response;
                 newsDocuments.push(firebaseDocument);
-                resolve();
+                resolve(newsDocuments);
               });
             })
           )

@@ -34,6 +34,9 @@ import { environment } from 'src/environments/environment';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from "@angular/fire/auth";
+import { FeedbackComponent } from './feedback/feedback.component';
+import { StarRatingModule } from 'angular-star-rating';
+import { RatingModule } from 'ng-starrating';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -53,7 +56,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     NewsCreateComponent,
     TeacherEditComponent,
     DocumentsComponent,
-    DocumentsEditComponent
+    DocumentsEditComponent,
+    FeedbackComponent
   ],
   imports: [
     BrowserModule,
@@ -63,6 +67,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AngularMaterialModule,
     ReactiveFormsModule,
     ToastrModule.forRoot(), // ToastrModule added
+    RatingModule,
     FormsModule,
     FlexLayoutModule,
     CKEditorModule,

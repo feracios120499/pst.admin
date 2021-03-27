@@ -40,6 +40,7 @@ export class TeacherService extends BaseService {
       var teacherId = this.db.list('/teachers').push(teacher).key;
 
       teacher.Id = teacherId;
+      teacher.Position = 99;
       const filePath = `teachers/${teacher.Id}.png`;
       const fileRef = this.storage.ref(filePath);
       const task = this.storage.upload(filePath, teacher.ImageFile);

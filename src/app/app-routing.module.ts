@@ -10,6 +10,7 @@ import { NewsCreateComponent } from './components/news-create/news-create.compon
 import { TeacherEditComponent } from './components/teacher-edit/teacher-edit.component';
 import { DocumentsComponent } from './components/documents/documents.component';
 import { DocumentsEditComponent } from './components/documents-edit/documents-edit.component';
+import { FeedbackComponent } from './feedback/feedback.component';
 
 
 const loginRoutes: Routes = [
@@ -21,6 +22,7 @@ const dashboardRoutes: Routes = [
   { path: 'teachers/edit/:id', component: TeacherEditComponent},
   { path: 'teachers/create', component: TeacherEditComponent},
   { path: 'news', component: NewsComponent},
+  { path: 'feedback', component: FeedbackComponent},
   {path: 'news/create',component:NewsCreateComponent},
   {path:'documents',component:DocumentsComponent},
   {path:'documents/edit/:id',component:DocumentsEditComponent},
