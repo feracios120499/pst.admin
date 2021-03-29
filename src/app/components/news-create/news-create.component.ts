@@ -99,6 +99,7 @@ export class NewsCreateComponent implements OnInit {
     //   this.toastr.warning("", "Введіть заголовок новини");
     //   return;
     // }
+    debugger;
     this.newsService.createNews(this.new, this.images, this.documents).then((response) => {
        this.toastr.success("Новину додано", "Успішно");
        this.router.navigate(['dashboard/news']);

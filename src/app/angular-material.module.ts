@@ -25,7 +25,8 @@ import {
    MatDialogModule,
    MatSlideToggleModule,
    MatProgressSpinnerModule,
-   MatExpansionModule
+   MatExpansionModule,
+   MatCheckboxModule
 } from '@angular/material';
 
 @NgModule({
@@ -54,7 +55,8 @@ import {
       MatSlideToggleModule,
       MatProgressSpinnerModule,
       MatExpansionModule,
-      DragDropModule
+      DragDropModule,
+      MatCheckboxModule
    ],
    exports: [
       MatButtonModule,
@@ -79,7 +81,8 @@ import {
       MatSlideToggleModule,
       MatProgressSpinnerModule,
       MatExpansionModule,
-      DragDropModule
+      DragDropModule,
+      MatCheckboxModule
    ],
    providers: [
       MatDatepickerModule,

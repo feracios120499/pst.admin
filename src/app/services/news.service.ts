@@ -62,6 +62,7 @@ export class NewsService extends BaseService {
     news.Rubric = createModel.Rubric;
     news.Text = createModel.Text;
     news.Title = createModel.Title;
+    news.IsDeclaration = createModel.IsDeclaration;
 
 
     var newsId = this.db.list('news/').push(news).key;

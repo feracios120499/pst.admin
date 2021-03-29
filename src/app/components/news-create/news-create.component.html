@@ -58,7 +58,7 @@
                             overflow: hidden;">{{image.name}}</h4>
                             <button mat-button color="warn" (click)="remove(image)">видалити</button>
                         </div>
-                        
+
                         <mat-divider style="position: relative!important;"></mat-divider>
                     </mat-list-item>
                 </mat-expansion-panel>
@@ -69,20 +69,26 @@
                         </mat-panel-title>
                     </mat-expansion-panel-header>
                     <button type="button" mat-raised-button (click)="fileInput2.click()">Обрати документи</button>
-                    <input hidden (change)="onSelectDocuments($event, fileInput2.files)" #fileInput2 multiple type="file"
-                        id="file" accept="application/pdf">
-                        <mat-list-item *ngFor="let doc of documents">
-                            <div class="flex flex-center-between">
-                                <img src="../../../assets/img/file-pdf-solid.svg" width="50" height="50">
-                                <h4 mat-line style="max-width: 50%;
+                    <input hidden (change)="onSelectDocuments($event, fileInput2.files)" #fileInput2 multiple
+                        type="file" id="file" accept="application/pdf">
+                    <mat-list-item *ngFor="let doc of documents">
+                        <div class="flex flex-center-between">
+                            <img src="../../../assets/img/file-pdf-solid.svg" width="50" height="50">
+                            <h4 mat-line style="max-width: 50%;
                                 text-overflow: ellipsis;
                                 overflow: hidden;">{{doc.name}}</h4>
-                                <button mat-button color="warn" (click)="removeDoc(doc)">видалити</button>                             
-                            </div>
-                            <mat-divider style="position: relative!important;"></mat-divider>
-                        </mat-list-item>
+                            <button mat-button color="warn" (click)="removeDoc(doc)">видалити</button>
+                        </div>
+                        <mat-divider style="position: relative!important;"></mat-divider>
+                    </mat-list-item>
                 </mat-expansion-panel>
             </mat-accordion>
+            <div style="margin:20px 5px 0 0">
+                <mat-checkbox class="example-margin" [(ngModel)]="new.IsDeclaration">Зберегти як оголошення
+                </mat-checkbox>
+                {{new.IsDeclaration}}
+            </div>
+
         </mat-card-content>
         <mat-card-actions>
             <button mat-button color="primary" (click)="addNew()">зберегти</button>
