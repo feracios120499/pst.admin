@@ -1,32 +1,32 @@
-import { NgModule } from '@angular/core';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 import { CommonModule } from '@angular/common';
-import {DragDropModule} from '@angular/cdk/drag-drop';
-
+import { NgModule } from '@angular/core';
 import {
-   MatButtonModule,
-   MatToolbarModule,
-   MatCardModule,
-   MatIconModule,
    MatBadgeModule,
-   MatSidenavModule,
-   MatListModule,
-   MatGridListModule,
-   MatFormFieldModule,
-   MatInputModule,
-   MatSelectModule,
-   MatRadioModule,
-   MatDatepickerModule,
-   MatNativeDateModule,
+   MatButtonModule,
+   MatCardModule,
+   MatCheckboxModule,
    MatChipsModule,
-   MatTooltipModule,
-   MatTableModule,
-   MatPaginatorModule,
-   MatTabsModule,
+   MatDatepickerModule,
    MatDialogModule,
-   MatSlideToggleModule,
-   MatProgressSpinnerModule,
    MatExpansionModule,
-   MatCheckboxModule
+   MatFormFieldModule,
+   MatGridListModule,
+   MatIconModule,
+   MatInputModule,
+   MatListModule,
+   MatNativeDateModule,
+   MatPaginatorModule,
+   MatProgressSpinnerModule,
+   MatRadioModule,
+   MatSelectModule,
+   MatSidenavModule,
+   MatSlideToggleModule,
+   MatSortModule,
+   MatTableModule,
+   MatTabsModule,
+   MatToolbarModule,
+   MatTooltipModule,
 } from '@angular/material';
 
 @NgModule({
@@ -49,6 +49,7 @@ import {
       MatNativeDateModule,
       MatChipsModule,
       MatTooltipModule,
+      MatSortModule,
       MatTableModule,
       MatPaginatorModule,
       MatDialogModule,
@@ -75,6 +76,7 @@ import {
       MatDatepickerModule,
       MatChipsModule,
       MatTooltipModule,
+      MatSortModule,
       MatTableModule,
       MatPaginatorModule,
       MatDialogModule,

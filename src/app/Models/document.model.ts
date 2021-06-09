@@ -1,3 +1,5 @@
+import { Reference } from '@angular/fire/storage/interfaces';
+
 import { Loading } from './loading.model';
 
 export class DocumentModel implements Loading {
@@ -9,4 +11,14 @@ export class DocumentModel implements Loading {
     public Subject: string;
     public Teachers;
     public FullPath: string;
+    public DownloadUrl: string;
+    public Reference: Reference;
+}
+
+export interface Document2 {
+    Id: string;
+    FileName: string;
+    Subject: string;
+    Position: number;
+    Description: string;
 }
